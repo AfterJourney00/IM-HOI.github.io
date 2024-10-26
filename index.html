@@ -1,450 +1,202 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="aaa.">
-  <meta name="keywords" content="I'M HOI, 3D Human-Object Interactions, Monocular Motion Cature, Inertia-aided Motion Capture">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/project.css" media="screen" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/iconize.css" />
+    <script src="js/google-code-prettify/prettify.js"></script> -->
+  </head>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
-  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon_package/favicon-512x512.png">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-</head>
-<body>
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions</h1>
-
-          <div class="is-size-5 publication-authors">
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions
+            </h2>
+            <h4 style="color:#ff0000;"><b>CVPR 2024</b></h4>
+            <hr>
+            <h6>
+                <a href="https://afterjourney00.github.io/" target="_blank">Chengfeng Zhao</a><sup>1</sup>,
+                <a href="https://juzezhang.github.io/" target="_blank">Juze Zhang</a><sup>1,2,3</sup>,
+                <a href="https://alt-js.github.io/" target="_blank">Jiashen Du</a><sup>1</sup>,
+                <a href="https://cunkaixin.netlify.app" target="_blank">Ziwei Shan</a><sup>1</sup>,
+                Junye Wang<sup>1</sup>,
+                <a href="https://scholar.google.com/citations?user=R9L_AfQAAAAJ&hl=en" target="_blank">Jingyi Yu</a><sup>1</sup>,
+                <a href="https://faculty.sist.shanghaitech.edu.cn/faculty/wangjingya/" target="_blank">Jingya Wang</a><sup>1</sup>,
+                <a href="https://www.xu-lan.com/" target="_blank">Lan Xu</a><sup>1</sup>
+            </h6>
             <p>
-              <span class="author-block">CVPR 2024</span>
+                <sup>1</sup>ShanghaiTech University &nbsp;&nbsp;
+                <sup>2</sup>Shanghai Advanced Research Institute, Chinese Academy of Sciences
+                <br>
+                <sup>3</sup>University of Chinese Academy of Sciences
             </p>
-          </div>
-          
-          <div class="is-size-5 publication-authors">
-            <p>
-            <span class="author-block">
-              <a href="https://afterjourney00.github.io/">Chengfeng Zhao</a>,</span>
-            <span class="author-block">
-              <a href="https://scholar.google.com.hk/citations?user=qbovRUIAAAAJ">Juze Zhang</a>,</span>
-            <span class="author-block">
-              <a href="https://alt-js.github.io/">Jiashen Du</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://cunkaixin.netlify.app">Ziwei Shan</a>,
-            </span>
-            <span class="author-block">
-              Junye Wang,
-            </span>
-            </p>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=R9L_AfQAAAAJ">Jingyi Yu</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://faculty.sist.shanghaitech.edu.cn/faculty/wangjingya/">Jingya Wang</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.xu-lan.com/">Lan Xu</a><sup>*</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <p>
-              <span class="author-block"><sup>*</sup>Corresponding author</span>
-            </p>
-            <p>
-            <span class="author-block">ShanghaiTech University</span>
-            </p>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href="./index.html"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span> -->
-              <!-- ArXiv Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2312.08869"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MdG00uakBa8"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/AfterJourney00/IMHD-Dataset"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Data&Code</span>
-                  </a>
-              </span>
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="./index.html"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data(coming soon)</span>
-                  </a>
-              </span> -->
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2312.08869" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper </a> </p>
+              </div>
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://www.youtube.com/watch?v=MdG00uakBa8" role="button"  target="_blank">
+                  <i class="fa fa-youtube"></i> Video </a> </p>
             </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/AfterJourney00/IMHD-Dataset" role="button"  target="_blank">
+                    <i class="fa fa-github"></i> GitHub </a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://forms.gle/3MDh3b4szhFwcYa26" role="button"  target="_blank">
+                    <i class="fa fa-database"></i> Dataset </a> </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/intro.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Taking a monocular RGB video and single inertial measurement unit (IMU) sensor recording, I'm-HOI can capture challenging and dynamic human-object interaction (HOI) motions like skateboarding.
-      </h2>
-    </div>
-  </div>
-</section>
+  </section>
 
 
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We are living in a world surrounded by diverse and “smart” devices with rich modalities of sensing ability. Conveniently capturing the interactions between us humans and these objects remains far-reaching. In this paper, we present I'm-HOI, a monocular scheme to faithfully capture the 3D motions of both the human and object in a novel setting: using a minimal amount of RGB camera and object-mounted Inertial Measurement Unit (IMU). It combines general motion inference and category-aware refinement. For the former, we introduce a holistic human-object tracking method to fuse the IMU signals and the RGB stream and progressively recover the human motions and subsequently the companion object motions. For the latter, we tailor a category-aware motion diffusion model, which is conditioned on both the raw IMU observations and the results from the previous stage under over-parameterization representation. It significantly refines the initial results and generates vivid body, hand, and object motions. Moreover, we contribute a large dataset with ground truth human and object motions, dense RGB inputs, and rich object-mounted IMU measurements. Extensive experiments demonstrate the effectiveness of I'm-HOI under a hybrid capture setting. Our dataset and code will be released to the community.
-          </p>
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <!-- <h6 style="color:#8899a5"> I'M HOI is able to reconstruct both shape and BRDF of reflective objects using only multiview images. </h6> -->
+            <div class="row" style="margin-bottom:5px">
+              <div class="col" style="text-align:center">
+                <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="video/intro.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+			      <br>
+            <p class="text-left">
+              We are living in a world surrounded by diverse and “smart” devices with rich modalities of sensing ability. Conveniently capturing the interactions between us humans and these objects remains far-reaching. In this paper, we present I'm-HOI, a monocular scheme to faithfully capture the 3D motions of both the human and object in a novel setting: using a minimal amount of RGB camera and object-mounted Inertial Measurement Unit (IMU). It combines general motion inference and category-aware refinement. For the former, we introduce a holistic human-object tracking method to fuse the IMU signals and the RGB stream and progressively recover the human motions and subsequently the companion object motions. For the latter, we tailor a category-aware motion diffusion model, which is conditioned on both the raw IMU observations and the results from the previous stage under over-parameterization representation. It significantly refines the initial results and generates vivid body, hand, and object motions. Moreover, we contribute a large dataset with ground truth human and object motions, dense RGB inputs, and rich object-mounted IMU measurements. Extensive experiments demonstrate the effectiveness of I'm-HOI under a hybrid capture setting. Our dataset and code will be released to the community.
+            </p>
         </div>
       </div>
     </div>
+  </section>
+  <br>
 
-  <div class="container is-max-desktop">
-    <!-- Pipeline. -->
-    <div class="hero-body">
-      <h2 class="title is-3">Pipeline</h2>
-      <img src="static/images/pipeline.png" width="100%">
-      <h2 class="subtitle has-text-centered">
+  <!-- pipeline -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h2>Pipeline</h2>
+            <hr style="margin-top:0px">
+            <img src="images/pipeline.png" width="100%">
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
         I'm-HOI combines general motion inference and category-aware refinement.
         For the former, we introduce a holistic human-object tracking method to fuse IMU signals with RGB stream, then recover the human and companion object motions progressively.
         For the latter, we tailor a category-aware motion diffusion model, which is conditioned on both the raw IMU observations and the results from the previous stage under over-parameterization representation.
         It significantly refines the initial results and generates vivid body, hand, and object motions.
-      </h2>
+      </p>
     </div>
-  </div>
+  </section>
+  <br>
 
-  <div class="container is-max-desktop">
-    <!-- Dataset. -->
-    <div class="hero-body">
-      <h2 class="title is-3">IMHD<sup>2</sup> Dataset</h2>
-      <img src="static/images/dataset_gallery_full.png" width="100%">
-      <video id="teaser" autoplay controls muted loop preload playsinline height="100%">
-        <source src="./static/videos/dataset.mp4" type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        We exhibit sampled highlights of <i><b>I</b>nertial and <b>M</b>ulti-view <b>H</b>ighly <b>D</b>ynamic human-object interactions <b>D</b>ataset (<b>IMHD<sup>2</sup></b>)</i> on the left side, and 10 well-scanned objects on the right side. In total, our dataset records 295 sequences and captures about 892k frames of data.
-      </h2>
-    </div>
-  </div>
-
-  </div>
-</section>
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
+  <!-- dataset -->
+  <section>
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="static\videos\nerfsynthetic.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="static\videos\shiny_blender.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="static\videos\glossy.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/tanks.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- <div class="columns is-centered"> -->
-
-      <!-- Visual Effects. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div> -->
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h2>IMHD Dataset</h2>
+            <hr style="margin-top:0px">
+            <img src="images/dataset_gallery_full.png" width="100%">
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/dataset.mp4" type="video/mp4">
             </video>
-          </div>
-
         </div>
-      </div> -->
-    <!--/ Matting. -->
-
-
-    <!-- Matting. -->
-    <!-- <div class="column">
-      <h2 class="title is-3">Matting</h2>
-      <div class="columns is-centered">
-        <div class="column content">
-          <p>
-            As a byproduct of our method, we can also solve the matting problem by ignoring
-            samples that fall outside of a bounding box during rendering.
-          </p>
-          <video id="matting-video" controls playsinline height="100%">
-            <source src="./static/videos/matting.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-
       </div>
-    </div> -->
-  <!--/ Matting. -->
-<!-- </div> -->
-
-    <!-- Comparison. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Capture Results</h2>
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_skateboard.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_baseball.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_dumbbell.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_tennis.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_broom.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_chair.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_pan.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="content has-text-centered">
-          <video id="replay-video" autoplay controls muted loop preload playsinline width="75%">
-            <source src="./static/videos/comparison_kettlebell.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <h2 class="subtitle has-text-centered">
-          I'm-HOI performs consistently better than baselines on multiple datasets, especially on IMHD<sup>2</sup> which is characterized by fast interaction motions.
-        </h2>
-      </div>
+      <br>
+      <p class="text-left">
+        We exhibit sampled highlights of <i><b>I</b>nertial and <b>M</b>ulti-view <b>H</b>ighly <b>D</b>ynamic human-object interactions <b>D</b>ataset (<b>IMHD<sup>2</sup></b>)</i> on the left side, and 10 well-scanned objects on the right side. In total, our dataset records 295 sequences and captures about 892k frames of data.
+      </p>
     </div>
-    <!--/ Animation. -->
-  </div>
-</section>
+  </section>
+  <br>
 
-<!-- Related work -->
-<!-- <section class="section">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Related</h2>
-    <pre><code>@misc{zhao2023imhoi,
-      title={I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions}, 
-      author={Chengfeng Zhao and Juze Zhang and Jiashen Du and Ziwei Shan and Junye Wang and Jingyi Yu and Jingya Wang and Lan Xu},
-      year={2023},
-      eprint={2312.08869},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}</code></pre>
-  </div>
-</section> -->
+  <!-- results -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h2>Capture Results</h2>
+            <hr style="margin-top:0px">
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="video/comparison_skateboard.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_baseball.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_dumbbell.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_tennis.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_broom.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_chair.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_pan.mp4" type="video/mp4">
+            </video>
+            <video width="80%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+              <source src="video/comparison_kettlebell.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+      <br>
+      <p class="text-left">
+        I'm-HOI performs consistently better than baselines on multiple datasets, especially on IMHD<sup>2</sup> which is characterized by fast interaction motions.
+      </p>
+    </div>
+  </section>
+  <br>
 
-<!-- BibTeX -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Citation</h2>
-    <pre><code>@InProceedings{zhao2024imhoi,
-      author    = {Zhao, Chengfeng and Zhang, Juze and Du, Jiashen and Shan, Ziwei and Wang, Junye and Yu, Jingyi and Wang, Jingya and Xu, Lan},
-      title     = {I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions},
-      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-      month     = {June},
-      year      = {2024},
-      pages     = {729-741}
-}</code></pre>
-  </div>
-</section>
-
-<!-- Acknowledgments -->
-<section class="section">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Acknowledgments</h2>
-    <p>
-      We thank Jingyan Zhang and Hongdi Yang for setting up the capture system.
-      We thank Jingyan Zhang, Zining Song, Jierui Xu, Weizhi Wang, Gubin Hu, Yelin Wang, Zhiming Yu, Xuanchen Liang, af and zr for data collection.
-      We thank Xiao Yu, Yuntong Liu and Xiaofan Gu for data checking and annotations.
-    </p>
-  </div>
-</section>
-
-
-<!-- <footer class="footer">
+  <!-- citing -->
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@InProceedings{zhao2024imhoi,
+  author    = {Zhao, Chengfeng and Zhang, Juze and Du, Jiashen and Shan, Ziwei and Wang, Junye and Yu, Jingyi and Wang, Jingya and Xu, Lan},
+  title     = {I'M HOI: Inertia-aware Monocular Capture of 3D Human-Object Interactions},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month     = {June},
+  year      = {2024},
+  pages     = {729-741}
+}</code></pre>
+          <hr>
       </div>
     </div>
   </div>
-</footer> -->
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
 
 </body>
 </html>
